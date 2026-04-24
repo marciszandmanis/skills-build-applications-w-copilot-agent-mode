@@ -26,11 +26,11 @@ router.register(r'activities', views.ActivityViewSet)
 router.register(r'workouts', views.WorkoutViewSet)
 router.register(r'leaderboard', views.LeaderboardViewSet)
 
-codespace_name = os.environ.get('CODESPACE_NAME')
-if codespace_name:
-    base_url = f"https://{codespace_name}-8000.app.github.dev"
-else:
-    base_url = "http://localhost:8000"
+
+# The API endpoints are available at:
+#   https://$CODESPACE_NAME-8000.app.github.dev/api/[component]/
+#   or http://localhost:8000/api/[component]/
+# Do not hardcode $CODESPACE_NAME; Django will use ALLOWED_HOSTS and the request host.
 
 urlpatterns = [
     path('admin/', admin.site.urls),
